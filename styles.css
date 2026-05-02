@@ -8,6 +8,32 @@
   --gold: #d8b46a;
 }
 
+:root.light {
+  --bg: #f4f3ef;
+  --panel: rgba(0,0,0,0.05);
+  --panel-strong: rgba(0,0,0,0.09);
+  --text: #0a0a0a;
+  --muted: rgba(0,0,0,0.58);
+  --line: rgba(0,0,0,0.11);
+  --gold: #9a6410;
+}
+
+:root.light body {
+  background:
+    radial-gradient(circle at top right, rgba(216,180,106,.10), transparent 34rem),
+    radial-gradient(circle at left, rgba(0,0,0,.04), transparent 28rem),
+    var(--bg);
+}
+
+:root.light input,
+:root.light select,
+:root.light textarea { background: rgba(255,255,255,0.75); color: #0a0a0a; }
+
+:root.light .primary { background: #0a0a0a; color: #fff; }
+:root.light .secondary { background: var(--panel); color: #0a0a0a; border-color: var(--line); }
+:root.light .nav-cta { color: #0a0a0a !important; }
+:root.light .access-form button { background: #0a0a0a; color: #fff; }
+
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -85,4 +111,18 @@ textarea { min-height: 120px; resize: vertical; }
 .simple-page img { width: min(500px, 100%); border-radius: 14px; }
 .simple-page h1 { font-size: clamp(44px, 7vw, 76px); }
 .simple-page .btn { width: max-content; }
+.theme-toggle {
+  display: flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--panel); border: 1px solid var(--line);
+  cursor: pointer; padding: 0; flex-shrink: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+.theme-toggle:hover { background: var(--panel-strong); }
+.theme-toggle svg { width: 18px; height: 18px; display: block; }
+.icon-sun  { display: none; }
+.icon-moon { display: block; }
+:root.light .icon-sun  { display: block; }
+:root.light .icon-moon { display: none; }
+
 @media (max-width: 900px) { .nav { align-items: flex-start; gap: 18px; } .nav nav { display: none; } .hero, .split, .feature, .spotlight, .partner { grid-template-columns: 1fr; } .three, .four, .metrics { grid-template-columns: 1fr; } .coin { width: 250px; height: 250px; } .coin-face img { width: 135px; height: 76px; } }
